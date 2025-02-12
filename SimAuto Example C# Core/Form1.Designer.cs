@@ -73,7 +73,7 @@
             textCaseFileName.Name = "textCaseFileName";
             textCaseFileName.Size = new System.Drawing.Size(584, 23);
             textCaseFileName.TabIndex = 2;
-            textCaseFileName.Text = "C:\\Program Files (x86)\\PowerWorld\\Simulator15\\Sample Cases\\B7OPF.pwb";
+            textCaseFileName.Text = "C:\\Users\\Public\\Documents\\PowerWorld\\23\\Sample Cases\\B7OPF.pwb";
             // 
             // btnOpenCase
             // 
