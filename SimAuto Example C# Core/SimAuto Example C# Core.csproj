@@ -12,7 +12,7 @@
     <COMReference Include="pwrworld">
       <WrapperTool>tlbimp</WrapperTool>
       <VersionMinor>0</VersionMinor>
-      <VersionMajor>21</VersionMajor>
+      <VersionMajor>24</VersionMajor>
       <Guid>c99f1760-277e-11d5-a106-00c04f469176</Guid>
       <Lcid>0</Lcid>
       <Isolated>false</Isolated>
