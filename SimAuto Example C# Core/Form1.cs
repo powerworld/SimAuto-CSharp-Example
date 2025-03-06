@@ -81,14 +81,27 @@ namespace SimAuto_Example
         private void btnGetGenParams_Click(object sender, EventArgs e)
         {
             object[] fieldarray = new object[] { "BusNum", "GenID", "GenStatus", "GenAGCAble", "GenMW", "GenMVR" };
-            dynamic output = FSimAuto.GetParamsRectTyped("GEN", fieldarray, "", (ushort)VarEnum.VT_VARIANT);
+            //dynamic output = FSimAuto.GetParamsRectTyped("GEN", fieldarray, "", VarEnum.VT_VARIANT);
+            //dynamic output = FSimAuto.GetParametersMultipleElement("GEN", fieldarray, "");
+            //dynamic output = FSimAuto.GetParamsTypedCols("GEN", fieldarray, "", VarEnum.VT_VARIANT);
+            object[] typearray = new object[] { VarEnum.VT_I4, VarEnum.VT_BSTR, VarEnum.VT_BSTR, VarEnum.VT_BSTR, 
+                VarEnum.VT_R8, VarEnum.VT_R8 };
+            dynamic output = FSimAuto.GetParamsTypedCols("GEN", fieldarray, "", typearray);
             if (string.IsNullOrEmpty(output[0]))
             {
                 textLog.Text = textLog.Text + Environment.NewLine;
-                for (int i = 0; i < output[1].GetLength(0); i++)
-                    textLog.Text = textLog.Text + output[1][i,0] + '\t' + output[1][i,1] + '\t' +
-                         output[1][i,2] + '\t' + output[1][i,3] + '\t' + string.Format("{0,7:F1}", output[1][i,4]) +
-                         '\t' + string.Format("{0,7:F1}", output[1][i,5]) + Environment.NewLine;
+                //for (int i = 0; i < output[1].GetLength(0); i++)
+                //    textLog.Text = textLog.Text + output[1][i,0] + '\t' + output[1][i, 1] + '\t' +
+                //         output[1][i, 2] + '\t' + output[1][i, 3] + '\t' + string.Format("{0,7:F1}", output[1][i, 4]) +
+                //         '\t' + string.Format("{0,7:F1}", output[1][i,5]) + Environment.NewLine;
+                //for (int i = 0; i < output[1][0].GetLength(0); i++)
+                //    textLog.Text = textLog.Text + output[1][0][i] + '\t' + output[1][1][i] + '\t' +
+                //         output[1][2][i] + '\t' + output[1][3][i] + '\t' + output[1][4][i] +
+                //         '\t' + output[1][5][i] + Environment.NewLine;
+                for (int i = 0; i < output[1][0].GetLength(0); i++)
+                    textLog.Text = textLog.Text + output[1][0][i] + '\t' + output[1][1][i] + '\t' +
+                         output[1][2][i] + '\t' + output[1][3][i] + '\t' + string.Format("{0,7:F1}", output[1][4][i]) +
+                         '\t' + string.Format("{0,7:F1}", output[1][5][i]) + Environment.NewLine;
             }
             else
             {
